@@ -1,0 +1,10 @@
+DROP TABLE IF EXIST Usuarios;
+
+CREATE TABLE Usuarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE NOT NULL,
+    senha TEXT NOT NULL,
+    nome TEXT NOT NULL,
+    sobrenome TEXT NOT NULL,
+    telefone VARCHAR(11) NOT NULL
+);
