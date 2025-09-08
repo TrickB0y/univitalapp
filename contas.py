@@ -55,6 +55,34 @@ def registro():
         
     return render_template("auth/registro.html")
 
+
+@bp.route("/login", methods=("GET", "POST"))
+def login():
+    if request.method == "POST":
+        email = request.form["email"]
+        senha = request.form["senha"]
+        db = get_db()
+        erro = None
+        
+        usuario = db.execute(
+            "SELECT * FROM Usuarios WHERE email = ?", (email,)
+        ).fetchone()
+        
+        if usuario is None:
+            erro = "O email está incorreto."
+        elif not check_password_hash(usuario["senha"], senha):
+            erro = "A senha está incorreta."
+            
+        if erro is None:
+            session.clear()
+            session["user_id"] = usuario["id"]
+            return redirect(url_for("index"))
+        
+        flash(erro)
+        
+    return render_template("auth/login.html")    
+    
+
 # to do: pagina de login
 
 # to do: função de sessão logada
