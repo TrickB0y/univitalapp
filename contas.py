@@ -83,10 +83,28 @@ def login():
     return render_template("auth/login.html")    
     
 
-# to do: pagina de login
+@bp.before_app_request
+def carregar_usuario_logado():
+    user_id = session.get("user_id")
+    
+    if user_id is None:
+        g.usuario = None
+    else:
+        g.usuario = get_db().execute(
+            "SELECT * FROM Usuario WHERE id = ?",(user_id,)
+        ).fetchone()
 
-# to do: função de sessão logada
+@bp.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("index_placeholder"))
 
-# to do: função de log out
-
-# to do: função de login obrigatorio
+def login_requirido(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for("auth.login"))
+        
+        return view(**kwargs)
+    
+    return wrapped_view
