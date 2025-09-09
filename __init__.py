@@ -26,5 +26,10 @@ def create_app(test_config=None):
     def test():
         return "funcionando"
     
+    from . import database
+    database.init_app(app)
+    
+    from . import contas
+    app.register_blueprint(contas.bp)
     
     return app

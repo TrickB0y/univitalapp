@@ -44,7 +44,8 @@ def registro():
                 db.execute(
                     "INSERT INTO Usuarios (email, senha, nome, sobrenome, telefone) VALUES (?, ?, ?, ?, ?)",
                     (email, generate_password_hash(senha), nome, sobrenome, telefone),
-                ).commit()
+                )
+                db.commit()
             except db.IntegrityError:
                 erro = f"O Email {email} já esta cadastrado."
             else:
@@ -91,7 +92,7 @@ def carregar_usuario_logado():
         g.usuario = None
     else:
         g.usuario = get_db().execute(
-            "SELECT * FROM Usuario WHERE id = ?",(user_id,)
+            "SELECT * FROM Usuarios WHERE id = ?",(user_id,)
         ).fetchone()
 
 @bp.route("/logout")
