@@ -70,9 +70,9 @@ def login():
         ).fetchone()
         
         if usuario is None:
-            erro = "O email está incorreto."
+            erro = "O email ou a senha estão incorretos."
         elif not check_password_hash(usuario["senha"], senha):
-            erro = "A senha está incorreta."
+            erro = "O email ou a senha estão incorretos."
             
         if erro is None:
             session.clear()
