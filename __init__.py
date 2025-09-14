@@ -23,7 +23,7 @@ def create_app(test_config=None):
     
     
     @app.route("/")
-    def test():
+    def index():
         return "funcionando"
     
     from . import database
@@ -31,5 +31,8 @@ def create_app(test_config=None):
     
     from . import contas
     app.register_blueprint(contas.bp)
+    
+    from . import inicio
+    app.register_blueprint(inicio.bp)
     
     return app
