@@ -77,7 +77,7 @@ def login():
         if erro is None:
             session.clear()
             session["user_id"] = usuario["id"]
-            return redirect(url_for("index"))
+            return redirect(url_for("menu.index"))
         
         flash(erro)
         
@@ -98,13 +98,13 @@ def carregar_usuario_logado():
 @bp.route("/logout")
 def logout():
     session.clear()
-    return redirect(url_for("index_placeholder"))
+    return redirect(url_for("inicio.boas_vindas"))
 
 def login_requirido(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
-        if g.user is None:
-            return redirect(url_for("auth.login"))
+        if g.usuario is None:
+            return redirect(url_for("inicio.boas_vindas"))
         
         return view(**kwargs)
     

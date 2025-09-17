@@ -2,7 +2,7 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 
-bp = Blueprint("boas-vindas", __name__, url_prefix="/boas-vindas")
+bp = Blueprint("inicio", __name__, url_prefix="/boas-vindas")
 
 @bp.route("/", methods=("GET",))
 def boas_vindas():

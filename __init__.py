@@ -21,11 +21,7 @@ def create_app(test_config=None):
     except OSError:
         pass
     
-    
-    @app.route("/")
-    def index():
-        return "funcionando"
-    
+
     from . import database
     database.init_app(app)
     
@@ -34,5 +30,8 @@ def create_app(test_config=None):
     
     from . import inicio
     app.register_blueprint(inicio.bp)
+
+    from . import menu
+    app.register_blueprint(menu.bp)
     
     return app
