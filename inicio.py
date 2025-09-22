@@ -8,5 +8,5 @@ bp = Blueprint("inicio", __name__, url_prefix="/boas-vindas")
 def boas_vindas():
     user_id = session.get("user_id")
     if user_id != None:
-        return redirect(url_for("index"))
+        return redirect(url_for("menu.index"))
     return render_template("boas_vindas.html")
