@@ -24,11 +24,17 @@
         </fieldset>
 
         <h2>Conte detalhes</h2>
-        <textarea style="resize: none;" required></textarea>
+        <textarea style="resize: none;" id="texto-detalhes" name="detalhes" required></textarea>
 
         <input type="submit">
 
     </form>
+
+    <div class="flash-messages">
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+    </div>
     
     
 </body>

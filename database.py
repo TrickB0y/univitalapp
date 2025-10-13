@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime
 
 import click
 from flask import current_app, g
@@ -33,7 +34,12 @@ def init_db_command():
     """Apaga as tabelas existentes e cria novas tabelas."""
     init_db()
     click.echo('Database inicializada.')
-    
+
+
+sqlite3.register_converter(
+    "timestamp", lambda v: datetime.fromisoformat(v.decode())
+)
+
 
 def init_app(app):
     app.teardown_appcontext(close_db)

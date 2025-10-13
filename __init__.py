@@ -34,4 +34,7 @@ def create_app(test_config=None):
     from . import menu
     app.register_blueprint(menu.bp)
     
+    from . import diario
+    app.register_blueprint(diario.bp)
+
     return app
