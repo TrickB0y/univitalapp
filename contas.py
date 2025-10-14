@@ -38,6 +38,8 @@ def registro():
             erro = "O telefone é obrigatório."    
         elif senha != senha_confirmacao:
             erro = "As senhas não são iguais."
+        elif len(telefone) > 15 or len(telefone) < 14:
+            erro = "telefone invalido."
             
         if erro is None:
             try:

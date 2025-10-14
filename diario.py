@@ -8,9 +8,42 @@ from univitalapp.database import get_db # type: ignore
 
 bp = Blueprint("diario", __name__, url_prefix="/diario")
 
-@bp.route("/", methods=("GET", "POST"))
+@bp.route("/" , methods=("GET",))
 @login_requirido
 def index():
+    erro = None
+    diario_feito = False
+
+    db = get_db()
+    diario = db.execute(
+        'SELECT max(data_diario) as data_diario FROM Diarios WHERE id_usuario = ?',
+        (g.usuario['id'],)
+    ).fetchone()
+    data_diario = None
+
+    if diario["data_diario"] is not None:
+        data_diario = date.fromisoformat(diario["data_diario"])
+    if data_diario == date.today():
+        diario_feito = True
+        
+
+    return render_template("app/diario/menu.html", diario_feito = diario_feito)
+
+@bp.route("/historico", methods=("GET",))
+@login_requirido
+def historico():
+    db = get_db()
+
+    diarios = db.execute(
+        'SELECT dia.data_diario AS data_diario, sent.nome AS sentimento, dia.texto AS texto FROM Diarios AS dia JOIN Sentimentos AS sent ON dia.id_sentimento = sent.id WHERE dia.id_usuario = ?',
+        (g.usuario['id'],)
+    ).fetchall()
+    
+    return render_template("app/diario/historico.html", diarios = diarios)
+
+@bp.route("/fazer", methods=("GET", "POST"))
+@login_requirido
+def diario():
     db = get_db()
     diario = db.execute(
         'SELECT max(data_diario) as data_diario FROM Diarios WHERE id_usuario = ?',
@@ -48,8 +81,8 @@ def index():
                 (g.usuario['id'], sentimento_id, texto)
             )
             db.commit()
-            return redirect(url_for("menu.index"))
+            return redirect(url_for("diario.index"))
 
         flash(erro)
 
-    return render_template("app/diario.html")
+    return render_template("app/diario/diario.html")

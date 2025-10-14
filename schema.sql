@@ -8,7 +8,7 @@ CREATE TABLE Usuarios (
     senha TEXT NOT NULL,
     nome TEXT NOT NULL,
     sobrenome TEXT NOT NULL,
-    telefone VARCHAR(11) NOT NULL
+    telefone TEXT NOT NULL
 );
 
 CREATE TABLE Sentimentos (
