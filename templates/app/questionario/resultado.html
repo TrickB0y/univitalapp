@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnivitallApp - Questionario - Resultado</title>
+</head>
+<body>
+    <h1>Questionario</h1>
+    <br><br>
+    <a href="{{ url_for('questionario.index') }}">Voltar para o menu do questionario</a>
+    <br>
+    <a href="{{ url_for('questionario.historico') }}">Ir para o historico</a>
+    <br><br>
+    <h2>Resultado</h2>
+    <br><br>
+    <h3>Data: {{ data }} </h3>
+    <br>
+    <h4>Risco Geral: {{ risco }}</h4>
+    <br>
+    <h4>Orientação:</h4>
+    <p>{{ texto }}</p>
+
+</body>
+</html>

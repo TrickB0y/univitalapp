@@ -37,4 +37,7 @@ def create_app(test_config=None):
     from . import diario
     app.register_blueprint(diario.bp)
 
+    from . import questionario
+    app.register_blueprint(questionario.bp)
+
     return app

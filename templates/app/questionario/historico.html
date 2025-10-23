@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - Diario - Historico</title>
+    <title>UnivitallApp - Questionario - Historico</title>
 </head>
 <body>
-    <h1>Diario - Historico</h1>
+    <h1>Questionario - Historico</h1>
     <br><br>
-    <a href="{{ url_for('diario.index') }}">Voltar</a>
+    <a href="{{ url_for('questionario.index') }}">Voltar</a>
     <br><br>
 
-    {% for diario in diarios %}
-    <div>
-        <h3>{{ diario['data_diario'] }}</h3>
-        <h4>{{ diario['sentimento'] }}</h4>
-        <p>{{ diario['texto'] }}</p>
-    </div>
+    {% for questionario in completos %}
+    <a href="{{ url_for('questionario.resultado', id = questionario['id'] )}}">
+        <div>
+            <h3>{{ questionario['data_questionario'] }}</h3>
+        </div>
+    </a>
+    <br><br>
     {% endfor %}
 
 
