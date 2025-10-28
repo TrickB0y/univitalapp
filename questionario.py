@@ -106,16 +106,20 @@ def resultado(id):
 
     if pontuação <= 29:
         risco = "Baixo"
-        texto = "Foco em educação alimentar e autoconhecimento."
+        texto = ["Indica poucos sinais de preocupação. Há hábitos que podem ser melhorados, mas não sugerem risco significativo de transtornos alimentares.",
+                "Foco em educação alimentar e autoconhecimento."]
     elif pontuação >= 30 and pontuação <= 59:
         risco = "Leve"
-        texto = "Intervenção precoce com orientações de nutricionista e acompanhamento leve de saúde mental."
+        texto = ["Mostra alguns comportamentos alimentares ou emocionais que merecem atenção. Pode ser um estágio inicial de relação conflituosa com a comida e o corpo.", 
+                "Intervenção precoce com orientações de nutricionista e acompanhamento leve de saúde mental."]
     elif pontuação >= 60 and pontuação <= 89:
         risco = "Moderado"
-        texto = "Encaminhar para avaliação profissional imediata (nutricionista + psicólogo/psiquiatra)."
+        texto = ["Sugere comportamentos e pensamentos consistentes com possíveis transtornos alimentares. Já pode haver impacto no bem-estar físico e emocional. Procura de acompanhamento profissional é altamente recomendada.",
+                 "Encaminhar para avaliação profissional imediata (nutricionista + psicólogo/psiquiatra)."]
     elif pontuação >= 90 and pontuação <= 120:
         risco = "Alto"
-        texto = "Encaminhar para avaliação profissional imediata (nutricionista + psicólogo/psiquiatra)."
+        texto = ["Sinais fortes de possível transtorno alimentar, com impacto significativo na saúde física, emocional e social. É fundamental buscar acompanhamento com nutricionista e psicólogo especializados em transtornos alimentares.",
+                 "Encaminhar para avaliação profissional imediata (nutricionista + psicólogo/psiquiatra)."]
 
 
     return render_template("app/questionario/resultado.html", data = data, risco = risco, texto = texto)
