@@ -33,14 +33,10 @@ def index():
 
         if completo:
             data_questionario = questionario['data_questionario']
-            print(type(data_questionario))
-            print(data_questionario)
             data_liberada = None
             trintadias = timedelta(days= 30)
             data_liberada = data_questionario + trintadias
             presente = date.today()
-            print(data_liberada, " ", type(data_liberada))
-            print(presente, " ", type(presente))
             if data_liberada > presente:
                 questionario_feito = True
                 
@@ -152,14 +148,10 @@ def questionario(id):
 
         if completo:
             data_questionario = questionario['data_questionario']
-            print(type(data_questionario))
-            print(data_questionario)
             data_liberada = None
             trintadias = timedelta(days= 30)
             data_liberada = data_questionario + trintadias
             presente = date.today()
-            print(data_liberada, " ", type(data_liberada))
-            print(presente, " ", type(presente))
             if data_liberada > presente:
                 return redirect(url_for('questionario.index'))
     
