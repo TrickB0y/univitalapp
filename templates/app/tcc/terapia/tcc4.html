@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnivitallApp - TCC</title>
+</head>
+<body>
+    <h1>UnivitalApp</h1>
+    <a href="{{ url_for('auth.logout') }}">Log Out</a>
+    <br><br>
+    <a href="{{ url_for('menu.index') }}">Voltar pora o menu</a>
+    <br><br><br><br>
+    
+    <h2>
+        4. Técnica da Flecha Descendente (Exploração de Crenças Centrais)
+    </h2>
+    <br>
+
+    <p>
+        Objetivo: Identificar crenças profundas que sustentam padrões de pensamento negativo.
+    </p>
+
+    <br><br>
+
+    <h3>
+        Escreva um pensamento negativo (ex: “Eu nunca faço nada certo”)
+    </h3>
+    <br>
+    <textarea></textarea>
+
+    <br><br>
+
+    <h3>
+        Pergunte: “Se isso fosse verdade, o que significaria sobre mim?”
+    </h3>
+    <br>
+    <textarea></textarea>
+
+    <br><br>
+
+    <h3>
+        Continue perguntando até chegar à crença mais profunda (ex: “Não sou bom o suficiente”)
+    </h3>
+    <br>
+    <textarea></textarea>
+
+    <br><br>
+
+    <h3>
+        Reflita sobre a origem dessa crença e escreva uma resposta alternativa mais realista 
+        (ex: “Posso cometer erros e ainda assim ser uma pessoa capaz”).
+    </h3>
+    <br>
+    <textarea></textarea>
+
+    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
+    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
+    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
+    <p>ALGUEM POR FAVOR NO CSS TIREM A POSSIBILIDADE DE MUDAR O TAMANHO DAS CAIXAS DE TEXTO E COLOQUEM UM TAMANHO ACEITAVEL</p>
+    <br>
+    <P>NÃO ESQUEÇA DE APAGAR ISSO</P>
+    <br><br>
+
+    <a href="{{ url_for('menu.index') }}">
+        finalizar os exercicios
+    </a>
+
+    <br><br>
+
+    <div class="flash-messages">
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

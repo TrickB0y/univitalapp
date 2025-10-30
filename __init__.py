@@ -39,5 +39,8 @@ def create_app(test_config=None):
 
     from . import questionario
     app.register_blueprint(questionario.bp)
+    
+    from . import tcc
+    app.register_blueprint(tcc.bp)
 
     return app

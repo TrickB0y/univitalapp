@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnivitallApp - TCC</title>
+</head>
+<body>
+    <h1>UnivitalApp</h1>
+    <a href="{{ url_for('auth.logout') }}">Log Out</a>
+    <br><br>
+    <a href="{{ url_for('menu.index') }}">Voltar pora o menu</a>
+    <br><br><br><br>
+
+    <h2>
+        2. Técnica da Respiração 4-7-8 (Controle da Ansiedade)
+    </h2>
+    <br>
+
+    <p>
+        Objetivo: Reduzir a ativação fisiológica e acalmar a mente.
+    </p>
+    <br><br>
+
+    <h3>
+        Siga os seguintes passos:
+    </h3>
+    <br>
+    <h4>
+        1. Inspire pelo nariz contando até 4.
+    </h4>
+    <br>
+    <h4>
+        2. Segure o ar por 7 segundos.
+    </h4>
+    <br>
+    <h4>
+        3. Expire lentamente pela boca contando até 8.
+    </h4>
+    <br>
+    <h4>
+        4. Repita 3 a 5 vezes.
+    </h4>
+
+    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
+    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
+    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
+    <p>ALGUEM FAZ UMA ANIMAÇÃO EM JAVASCRIPT DE UM GUIA COM TIMER PARA AJUDAR NA ETAPA DA RESPIRAÇÃO</p>
+    <br>
+    <P>NÃO ESQUEÇA DE APAGAR ISSO</P>
+    <br><br>
+
+    <a href="{{ url_for('tcc.tcc3') }}">
+        proximo exercicio
+    </a>
+
+    <br><br>
+
+    <div class="flash-messages">
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

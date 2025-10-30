@@ -12,6 +12,15 @@
     <a href="{{ url_for('menu.index') }}">Voltar pora o menu</a>
     <br><br><br><br>
     
+    <p>
+        Este questionário tem como objetivo levantar informações sobre hábitos alimentares e aspectos emocionais relacionados à alimentação e ao corpo.
+    </p>
+    <p>
+        Atenção: O Questionario não substitui diagnóstico profissional. Os resultados servem apenas como triagem inicial.
+    </p>
+
+    <br><br>
+    
     {% if not questionario_feito %}
     <a href="{{ url_for('questionario.questionario', id = 1) }}">
         <p>Questionario</p>
