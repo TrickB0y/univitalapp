@@ -42,5 +42,8 @@ def create_app(test_config=None):
     
     from . import tcc
     app.register_blueprint(tcc.bp)
+    
+    from . import mapaDaAjuda
+    app.register_blueprint(mapaDaAjuda.bp)
 
     return app
