@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - Questionario - Historico</title>
-</head>
-<body>
-    <h1>Questionario - Historico</h1>
-    <br><br>
-    <a href="{{ url_for('questionario.index') }}">Voltar</a>
-    <br><br>
+{% extends 'base_app.html' %}
 
-    {% for questionario in completos %}
-    <a href="{{ url_for('questionario.resultado', id = questionario['id'] )}}">
-        <div>
-            <h3>{{ questionario['data_questionario'] }}</h3>
-        </div>
-    </a>
-    <br><br>
-    {% endfor %}
+{% block title %}Histórico de Questionários{% endblock %}
 
+{% block header_title %}Histórico de Questionários{% endblock %}
 
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
+{% block content %}
+<div class="content-section">
+    {% if completos %}
+        {% for questionario in completos %}
+        <a href="{{ url_for('questionario.resultado', id = questionario['id'] )}}" style="text-decoration: none;">
+            <div class="card" style="margin-bottom: 15px; padding: 20px; border-left: 5px solid var(--primary-color);">
+                <h3 style="margin: 0; color: var(--text-color);">Questionário de {{ questionario['data_questionario'] }}</h3>
+                <p style="margin: 5px 0 0 0; color: var(--light-text-color);">Clique para ver o resultado.</p>
+            </div>
+        </a>
         {% endfor %}
+    {% else %}
+        <div class="card">
+            <p>Nenhum questionário completo encontrado.</p>
+        </div>
+    {% endif %}
+    
+    <div style="margin-top: 20px;">
+        <a href="{{ url_for('questionario.index') }}" class="logout-link">← Voltar para o Menu Questionário</a>
     </div>
-    
-    
-</body>
-</html>
+</div>
+{% endblock %}

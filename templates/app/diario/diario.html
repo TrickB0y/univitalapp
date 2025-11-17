@@ -1,41 +1,34 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - Diario</title>
-</head>
-<body>
-    <h1>Diario</h1>
-    <form method="post">
-        <h2>Como esta se sentindo?</h2>
+{% extends 'base_app.html' %}
 
-        <fieldset>
+{% block title %}Diário{% endblock %}
+
+{% block header_title %}Diário{% endblock %}
+
+{% block content %}
+<div class="card">
+    <form method="post">
+        <h2>Como está se sentindo?</h2>
+
+        <div class="sentiment-options">
             <input type="radio" name="sentimento" id="sentimento1" value="raiva" required>
             <label for="sentimento1">Com Raiva</label>
             <input type="radio" name="sentimento" id="sentimento2" value="tristeza" required>
-            <label for="sentimento1">Triste</label>
+            <label for="sentimento2">Triste</label>
             <input type="radio" name="sentimento" id="sentimento3" value="felicidade" required>
-            <label for="sentimento1">Feliz</label>
+            <label for="sentimento3">Feliz</label>
             <input type="radio" name="sentimento" id="sentimento4" value="medo" required>
-            <label for="sentimento1">Com Medo</label>
+            <label for="sentimento4">Com Medo</label>
             <input type="radio" name="sentimento" id="sentimento5" value="frustacao" required>
-            <label for="sentimento1">Frustado</label>
-        </fieldset>
+            <label for="sentimento5">Frustrado</label>
+        </div>
 
         <h2>Conte detalhes</h2>
-        <textarea style="resize: none;" id="texto-detalhes" name="detalhes" required></textarea>
+        <div class="form-group">
+            <textarea id="texto-detalhes" name="detalhes" rows="6" required></textarea>
+        </div>
 
-        <input type="submit">
+        <input type="submit" value="Salvar Entrada" class="btn-primary">
 
     </form>
-
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
-    </div>
-    
-    
-</body>
-</html>
+</div>
+{% endblock %}

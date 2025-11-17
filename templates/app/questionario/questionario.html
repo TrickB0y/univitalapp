@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - Questionario</title>
-</head>
-<body>
-    <h1>Questionario</h1>
+{% extends 'base_app.html' %}
 
+{% block title %}Questionário{% endblock %}
+
+{% block header_title %}Questionário{% endblock %}
+
+{% block content %}
+<div class="card">
     <form method="post">
 
         <h2>{{ texto }}</h2>
 
-        <fieldset>
+        <div class="sentiment-options">
             <input type="radio" name="resposta" id="pergunta1" value="nunca" required>
             <label for="pergunta1">Nunca</label>
             <input type="radio" name="resposta" id="pergunta2" value="raramente" required>
@@ -23,18 +21,10 @@
             <label for="pergunta4">Frequentemente</label>
             <input type="radio" name="resposta" id="pergunta5" value="sempre" required>
             <label for="pergunta5">Sempre</label>
-        </fieldset>
+        </div>
 
-        <input type="submit">
+        <input type="submit" value="Próxima Pergunta" class="btn-primary">
 
     </form>
-
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
-    </div>
-    
-    
-</body>
-</html>
+</div>
+{% endblock %}

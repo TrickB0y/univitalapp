@@ -1,67 +1,38 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - TCC</title>
-</head>
-<body>
-    <h1>UnivitalApp</h1>
-    <a href="{{ url_for('auth.logout') }}">Log Out</a>
-    <br><br>
-    <a href="{{ url_for('menu.index') }}">Voltar pora o menu</a>
-    <br><br><br><br>
-    
-    <h2>
-        3. Registro de Gratidão e Autoafirmação
-    </h2>
-    <br>
+{% extends 'base_app.html' %}
 
+{% block title %}TCC - Gratidão e Autoafirmação{% endblock %}
+
+{% block header_title %}Registro de Gratidão e Autoafirmação{% endblock %}
+
+{% block content %}
+<div class="card content-section">
+    <h2>3. Registro de Gratidão e Autoafirmação</h2>
+    
     <p>
-        Objetivo: Reforçar pensamentos positivos e autoestima.
+        **Objetivo:** Reforçar pensamentos positivos e autoestima.
     </p>
 
-    <br><br>
+    <form method="post">
+        <div class="form-group">
+            <h3>Escreva 3 coisas pelas quais se sente grato hoje.</h3>
+            <textarea name="gratidao" rows="4" required></textarea>
+        </div>
 
-    <h3>
-        Escreva 3 coisas pelas quais se sente grato hoje.
-    </h3>
-    <br>
-    <textarea></textarea>
+        <div class="form-group">
+            <h3>Anote uma qualidade pessoal ou algo que fez bem.</h3>
+            <textarea name="autoafirmacao" rows="4" required></textarea>
+        </div>
 
-    <br><br>
+        <div class="form-group">
+            <h3>Leia em voz alta ou visualize essas frases por 30 segundos.</h3>
+            <p>Este exercício ajuda a internalizar os sentimentos positivos.</p>
+        </div>
 
-    <h3>
-        Anote uma qualidade pessoal ou algo que fez bem.
-    </h3>
-    <br>
-    <textarea></textarea>
-
-    <br><br>
-
-    <h3>
-        Leia em voz alta ou visualize essas frases por 30 segundos.
-    </h3>
-
-    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
-    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
-    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
-    <p>ALGUEM POR FAVOR NO CSS TIREM A POSSIBILIDADE DE MUDAR O TAMANHO DAS CAIXAS DE TEXTO E COLOQUEM UM TAMANHO ACEITAVEL</p>
-    <br>
-    <P>NÃO ESQUEÇA DE APAGAR ISSO</P>
-    <br><br>
-
-    <a href="{{ url_for('tcc.tcc4') }}">
-        proximo exercicio
-    </a>
-
-    <br><br>
-
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
-    </div>
+        <a href="{{ url_for('tcc.tcc4') }}" class="btn-primary">Próximo Exercício →</a>
+    </form>
     
-</body>
-</html>
+    <div style="margin-top: 20px;">
+        <a href="{{ url_for('tcc.index') }}" class="logout-link">← Voltar para o Menu TCC</a>
+    </div>
+</div>
+{% endblock %}

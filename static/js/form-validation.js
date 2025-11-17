@@ -9,8 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para validar telefone (formato brasileiro)
     function isValidPhone(phone) {
-        const phoneRegex = /^\(\d{2}\)\s\d{4,5}-\d{4}$|^\d{10,11}$/;
-        return phoneRegex.test(phone.replace(/\s/g, ''));
+        // Remove todos os caracteres não numéricos
+        const cleanPhone = phone.replace(/\D/g, '');
+        // O telefone brasileiro (com DD) tem 10 dígitos (fixo) ou 11 dígitos (celular com 9)
+        return cleanPhone.length === 10 || cleanPhone.length === 11;
     }
 
     // Função para adicionar feedback visual

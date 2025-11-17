@@ -1,44 +1,45 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitalApp - Menu</title>
-</head>
-<body>
-    <h1>UnivitalApp</h1>
-    <a href="{{ url_for('auth.logout') }}">Log Out</a>
-    <br><br><br><br>
-    <a href="{{ url_for('diario.index') }}">
-        <p>Diario</p>
-    </a>
+{% extends 'base_app.html' %}
 
-    <br><br>
+{% block title %}Menu Principal{% endblock %}
 
-    <a href="{{ url_for('questionario.index') }}">
-        <p>Questionário</p>
+{% block header_title %}Menu Principal{% endblock %}
 
-    </a>
-
-    <br><br>
-
-    <a href="{{ url_for('tcc.index') }}">
-        <p>TCC</p>
-    </a>
-
-    <br><br>
-    
-    <a href="{{ url_for('mapa-da-ajuda.index') }}">
-        <p>Mapa da Ajuda</p>
-    </a>
-    
-    
-    <br>
-    <br>
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
+{% block content %}
+<div class="menu-grid">
+    <div class="menu-item">
+        <a href="{{ url_for('diario.index') }}">
+            <div class="card">
+                <h3>Diário</h3>
+                <p>Registre seus sentimentos e pensamentos.</p>
+            </div>
+        </a>
     </div>
-</body>
-</html>
+
+    <div class="menu-item">
+        <a href="{{ url_for('questionario.index') }}">
+            <div class="card">
+                <h3>Questionário</h3>
+                <p>Acompanhe seu progresso e bem-estar.</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="{{ url_for('tcc.index') }}">
+            <div class="card">
+                <h3>TCC</h3>
+                <p>Acesse conteúdos de Terapia Cognitivo-Comportamental.</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="{{ url_for('mapa-da-ajuda.index') }}">
+            <div class="card">
+                <h3>Mapa da Ajuda</h3>
+                <p>Encontre recursos de apoio e ajuda.</p>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}

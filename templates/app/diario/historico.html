@@ -1,31 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - Diario - Historico</title>
-</head>
-<body>
-    <h1>Diario - Historico</h1>
-    <br><br>
-    <a href="{{ url_for('diario.index') }}">Voltar</a>
-    <br><br>
+{% extends 'base_app.html' %}
 
-    {% for diario in diarios %}
-    <div>
-        <h3>{{ diario['data_diario'] }}</h3>
-        <h4>{{ diario['sentimento'] }}</h4>
-        <p>{{ diario['texto'] }}</p>
-    </div>
-    {% endfor %}
+{% block title %}Histórico do Diário{% endblock %}
 
+{% block header_title %}Histórico do Diário{% endblock %}
 
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
+{% block content %}
+<div class="content-section">
+    {% if diarios %}
+        {% for diario in diarios %}
+        <div class="card" style="margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: var(--primary-color);">{{ diario['data_diario'] }}</h3>
+                <span style="background-color: var(--secondary-color); color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">{{ diario['sentimento'] }}</span>
+            </div>
+            <p>{{ diario['texto'] }}</p>
+        </div>
         {% endfor %}
+    {% else %}
+        <div class="card">
+            <p>Nenhuma entrada de diário encontrada.</p>
+        </div>
+    {% endif %}
+    
+    <div style="margin-top: 20px;">
+        <a href="{{ url_for('diario.index') }}" class="logout-link">← Voltar para o Menu Diário</a>
     </div>
-    
-    
-</body>
-</html>
+</div>
+{% endblock %}

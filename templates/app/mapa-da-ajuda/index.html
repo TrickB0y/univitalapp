@@ -1,142 +1,101 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - Mapa da ajuda</title>
-</head>
-<body>
-    <h1>UnivitalApp</h1>
-    <a href="{{ url_for('auth.logout') }}">Log Out</a>
-    <br><br>
-    <a href="{{ url_for('menu.index') }}">Voltar pora o menu</a>
-    <br><br><br><br>
-    
-    <h2>
-        Centro de Atenção Psicossocial Dr. Horácio Tavernard dos Santos (CAPS)
-    </h2>
-    <p>
-        Serviço público especializado em saúde mental, com atendimento psicossocial, grupos
-        terapêuticos e suporte a famílias. É o principal ponto de referência para casos de sofrimento
-        psicológico grave no município.
-    </p>
-    <h3>
-        Contato:
-    </h3>
-    <p>Telefone: (24) 2471-2585</p>
-    <a href="tel:+552424712585">Clique aqui para ligar para (24) 2471-2585</a>
-    <p>
-        Endereço: Rua Comandante Alves Branco, 32 – Centro, Vassouras – RJ.
-    </p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.6056218594345!2d-43.661969299999996!3d-22.4062202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9930c410a8e363%3A0x1b4de578e10c1f2b!2sR.%20Cmte.%20Alves%20Branco%2C%2032%20-%20Centro%2C%20Vassouras%20-%20RJ%2C%2027700-000!5e0!3m2!1spt-BR!2sbr!4v1762071329458!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+{% extends 'base_app.html' %}
 
-    <br><br>
+{% block title %}Mapa da Ajuda{% endblock %}
 
-    <h2>
-        Hospital Universitário de Vassouras – Setor de Psicologia / Emergência
-    </h2>
-    <p>
-        Oferece pronto atendimento psicológico e psiquiátrico, além de acompanhamento
-        multidisciplinar. Em casos de crise aguda ou risco de suicídio, deve ser procurado imediatamente.
-    </p>
-    <h3>
-        Contato:
-    </h3>
-    <p>Telefone: (24) 2471-8100</p>
-    <a href="tel:+552424718100">Clique aqui para ligar para (24) 2471-8100</a>
-    <p>
-        Endereço: Rua Vicente Celestino, 201 – Madruga, Vassouras – RJ, CEP 27700-000.
-    </p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.8320904394313!2d-43.65577712551804!3d-22.397686519873336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99c00c3901dd15%3A0xb219bb9344823f25!2sHospital%20Universit%C3%A1rio%20de%20Vassouras!5e0!3m2!1spt-BR!2sbr!4v1762071670503!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+{% block header_title %}Mapa da Ajuda{% endblock %}
 
-    <br><br>
-    
-    <h2>
-        Unidade Básica de Saúde (UBS)
-    </h2>
-    <p>
-        A UBS é a porta de entrada da Atenção Primária em Saúde. Oferece acolhimento e
-        encaminhamento para o CAPS ou Hospital, conforme a necessidade. Ideal para
-        início de acompanhamento psicológico.
-    </p>
+{% block content %}
+<div class="content-section">
+    <div class="card" style="margin-bottom: 30px;">
+        <h2 style="border-bottom: 2px solid var(--primary-color);">Centros de Apoio Local</h2>
 
-    <br><br>
+        <div class="resource-card">
+            <h3>Centro de Atenção Psicossocial Dr. Horácio Tavernard dos Santos (CAPS)</h3>
+            <p>Serviço público especializado em saúde mental, com atendimento psicossocial, grupos terapêuticos e suporte a famílias. É o principal ponto de referência para casos de sofrimento psicológico grave no município.</p>
+            <p><strong>Telefone:</strong> (24) 2471-2585 - <a href="tel:+552424712585" class="btn-primary" style="display: inline-block; padding: 5px 10px; font-size: 14px; margin-top: 5px;">Ligar</a></p>
+            <p><strong>Endereço:</strong> Rua Comandante Alves Branco, 32 – Centro, Vassouras – RJ.</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.6056218594345!2d-43.661969299999996!3d-22.4062202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9930c410a8e363%3A0x1b4de578e10c1f2b!2sR.%20Cmte.%20Alves%20Branco%2C%2032%20-%20Centro%2C%20Vassouras%20-%20RJ%2C%2027700-000!5e0!3m2!1spt-BR!2sbr!4v1762071329458!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
 
-    <h2>
-        Serviços Nacionais de Apoio Emocional
-    </h2>
-    <h3>
-        Centro de Valorização da Vida (CVV): 
-    </h3>
-    <p>
-        Telefone 188 (ligação gratuita, 24h) – escuta
-        acolhedora e sigilosa.
-    </p>
-    <h3>
-        SAMU:
-    </h3>
-    <p>
-        192 – Atendimento móvel de urgência.
-    </p>
-    <h3>
-        Polícia Militar: 
-    </h3>
-    <p>
-        190 – Para situações de risco imediato ou violência.
-    </p>
-    <h3>
-        Disque 100:
-    </h3>
-    <p>
-        Canal de denúncias de violações de direitos humanos, inclusive violência
-        psicológica.
-    </p>
+        <div class="resource-card">
+            <h3>Hospital Universitário de Vassouras – Setor de Psicologia / Emergência</h3>
+            <p>Oferece pronto atendimento psicológico e psiquiátrico, além de acompanhamento multidisciplinar. Em casos de crise aguda ou risco de suicídio, deve ser procurado imediatamente.</p>
+            <p><strong>Telefone:</strong> (24) 2471-8100 - <a href="tel:+552424718100" class="btn-primary" style="display: inline-block; padding: 5px 10px; font-size: 14px; margin-top: 5px;">Ligar</a></p>
+            <p><strong>Endereço:</strong> Rua Vicente Celestino, 201 – Madruga, Vassouras – RJ, CEP 27700-000.</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.8320904394313!2d-43.65577712551804!3d-22.397686519873336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99c00c3901dd15%3A0xb219bb9344823f25!2sHospital%20Universit%C3%A1rio%20de%20Vassouras!5e0!3m2!1spt-BR!2sbr!4v1762071670503!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
 
-    <br><br>
+        <div class="resource-card">
+            <h3>Unidade Básica de Saúde (UBS)</h3>
+            <p>A UBS é a porta de entrada da Atenção Primária em Saúde. Oferece acolhimento e encaminhamento para o CAPS ou Hospital, conforme a necessidade. Ideal para início de acompanhamento psicológico.</p>
+        </div>
 
-    <h2>
-        Conselho Regional de Psicologia (CRP-RJ)
-    </h2>
-    <p>
-        Atua na fiscalização e orientação do exercício profissional.
-    </p>
-    <p>Site: <a href="https://www.crprj.org.br/">www.crprj.org.br</a></p>
-    <p>Telefone: (21) 2139-5400</p>
-    <a href="tel:+552121395400">Clique aqui para ligar para (21) 2139-5400</a>
-    
-    <br><br>
-
-    <h2>
-        Clínicas-Escola e Projetos Universitários
-    </h2>
-    <p>
-        A Universidade de Vassouras mantém serviços psicológicos supervisionados, abertos à
-        comunidade. Esses atendimentos são gratuitos ou a baixo custo, conforme a disponibilidade
-        acadêmica.
-    </p>
-
-    <br><br>
-
-    <h2>
-        Dicas Importantes:
-    </h2>
-    <h3>
-        Em risco imediato à vida, ligue para 192 (SAMU) ou vá ao Hospital Universitário.
-    </h3>
-    <h3>
-        Em sofrimento emocional, procure o CAPS ou a UBS.
-    </h3>
-    <h3>
-        Guardar esses contatos em local de fácil acesso pode salvar vidas.
-    </h3>
-
-    <br><br>
-
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
+        <div class="resource-card">
+            <h3>Clínicas-Escola e Projetos Universitários</h3>
+            <p>A Universidade de Vassouras mantém serviços psicológicos supervisionados, abertos à comunidade. Esses atendimentos são gratuitos ou a baixo custo, conforme a disponibilidade acadêmica.</p>
+        </div>
     </div>
-    
-</body>
-</html>
+
+    <div class="card" style="margin-bottom: 30px;">
+        <h2 style="border-bottom: 2px solid var(--primary-color);">Serviços Nacionais de Apoio Emocional</h2>
+        
+        <div class="resource-card">
+            <h3>Centro de Valorização da Vida (CVV)</h3>
+            <p>Telefone **188** (ligação gratuita, 24h) – escuta acolhedora e sigilosa.</p>
+        </div>
+        
+        <div class="resource-card">
+            <h3>SAMU</h3>
+            <p>**192** – Atendimento móvel de urgência.</p>
+        </div>
+        
+        <div class="resource-card">
+            <h3>Polícia Militar</h3>
+            <p>**190** – Para situações de risco imediato ou violência.</p>
+        </div>
+        
+        <div class="resource-card">
+            <h3>Disque 100</h3>
+            <p>Canal de denúncias de violações de direitos humanos, inclusive violência psicológica.</p>
+        </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 30px;">
+        <h2 style="border-bottom: 2px solid var(--primary-color);">Outros Recursos</h2>
+        
+        <div class="resource-card">
+            <h3>Conselho Regional de Psicologia (CRP-RJ)</h3>
+            <p>Atua na fiscalização e orientação do exercício profissional.</p>
+            <p>Site: <a href="https://www.crprj.org.br/" target="_blank">www.crprj.org.br</a></p>
+            <p>Telefone: (21) 2139-5400 - <a href="tel:+552121395400" class="btn-primary" style="display: inline-block; padding: 5px 10px; font-size: 14px; margin-top: 5px;">Ligar</a></p>
+        </div>
+    </div>
+
+    <div class="card" style="background-color: var(--primary-color); color: white; padding: 20px; text-align: center;">
+        <h3 style="color: white; margin-top: 0;">Dicas Importantes:</h3>
+        <p style="font-weight: bold;">Em risco imediato à vida, ligue para 192 (SAMU) ou vá ao Hospital Universitário.</p>
+        <p style="font-weight: bold;">Em sofrimento emocional, procure o CAPS ou a UBS.</p>
+        <p style="font-weight: bold;">Guardar esses contatos em local de fácil acesso pode salvar vidas.</p>
+    </div>
+
+    <div style="margin-top: 20px; text-align: center;">
+        <a href="{{ url_for('menu.index') }}" class="logout-link" style="color: var(--primary-color); border-color: var(--primary-color); text-decoration: none;">← Voltar para o Menu Principal</a>
+    </div>
+</div>
+
+<style>
+    .resource-card {
+        border-left: 4px solid var(--secondary-color);
+        padding-left: 15px;
+        margin-bottom: 20px;
+    }
+    .resource-card h3 {
+        color: var(--text-color);
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    .resource-card p {
+        margin-bottom: 5px;
+    }
+</style>
+{% endblock %}

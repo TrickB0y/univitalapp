@@ -1,85 +1,49 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - TCC</title>
-</head>
-<body>
-    <h1>UnivitalApp</h1>
-    <a href="{{ url_for('auth.logout') }}">Log Out</a>
-    <br><br>
-    <a href="{{ url_for('menu.index') }}">Voltar pora o menu</a>
-    <br><br><br><br>
+{% extends 'base_app.html' %}
+
+{% block title %}TCC - Diário de Pensamentos{% endblock %}
+
+{% block header_title %}Diário de Pensamentos{% endblock %}
+
+{% block content %}
+<div class="card content-section">
+    <h2>1. Diário de Pensamentos (Reestruturação Cognitiva)</h2>
     
-    <h2>
-        1. Diário de Pensamentos (Reestruturação Cognitiva)
-    </h2>
-    <br>
-
     <p>
-        Objetivo: Ajudar o usuário a identificar e questionar pensamentos automáticos negativos.
+        **Objetivo:** Ajudar você a identificar e questionar pensamentos automáticos negativos.
     </p>
 
-    <br><br>
+    <form method="post">
+        <div class="form-group">
+            <h3>Descreva uma situação que te causou desconforto.</h3>
+            <textarea name="situacao" rows="4" required></textarea>
+        </div>
 
-    <h3>
-        Descreva uma situação que te causou desconforto.
-    </h3>
-    <br>
-    <textarea></textarea>
+        <div class="form-group">
+            <h3>O que pensou naquele momento?</h3>
+            <textarea name="pensamento" rows="4" required></textarea>
+        </div>
 
-    <br><br>
+        <div class="form-group">
+            <h3>Questione o pensamento:</h3>
+            <p>
+                "O que eu diria a um amigo que pensasse assim?”
+            </p>
+            <p>
+                “Há outra forma de ver essa situação?”
+            </p>
+            <textarea name="questionamento" rows="4" required></textarea>
+        </div>
 
-    <h3>
-        O que pensou naquele momento?
-    </h3>
-    <br>
-    <textarea></textarea>
+        <div class="form-group">
+            <h3>Agora substitua seu pensamento por um mais equilibrado e descreva sua nova emoção.</h3>
+            <textarea name="substituicao" rows="4" required></textarea>
+        </div>
 
-    <br><br>
-
-    <h3>
-        Questione o pensamento:
-    </h3>
-    <br>
-    <p>
-        "O que eu diria a um amigo que pensasse assim?”
-    </p>
-    <br>
-    <p>
-        “Há outra forma de ver essa situação?”
-    </p>
-    <br>
-    <textarea></textarea>
-
-    <br><br>
-
-    <h3>
-        Agora substitua seu pensamento por um mais equilibrado e descreva sua nova emoção.
-    </h3>
-    <br>
-    <textarea></textarea>
-
-    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
-    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
-    <h1 style="color: red;">!!!!ATENÇÃO DEV!!!!</h1>
-    <p>ALGUEM POR FAVOR NO CSS TIREM A POSSIBILIDADE DE MUDAR O TAMANHO DAS CAIXAS DE TEXTO E COLOQUEM UM TAMANHO ACEITAVEL</p>
-    <br>
-    <P>NÃO ESQUEÇA DE APAGAR ISSO</P>
-    <br><br>
-
-    <a href="{{ url_for('tcc.tcc2') }}">
-        proximo exercicio
-    </a>
-
-    <br><br>
-
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
+        <a href="{{ url_for('tcc.tcc2') }}" class="btn-primary">Próximo Exercício →</a>
+    </form>
+    
+    <div style="margin-top: 20px;">
+        <a href="{{ url_for('tcc.index') }}" class="logout-link">← Voltar para o Menu TCC</a>
     </div>
-    
-</body>
-</html>
+</div>
+{% endblock %}

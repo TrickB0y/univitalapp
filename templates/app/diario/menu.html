@@ -1,39 +1,44 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - Diario - Menu</title>
-</head>
-<body>
-    <h1>UnivitalApp</h1>
-    <a href="{{ url_for('auth.logout') }}">Log Out</a>
-    <br><br>
-    <a href="{{ url_for('menu.index') }}">Voltar pora o menu</a>
-    <br><br><br><br>
-    
-    {% if not diario_feito %}
-    <a href="{{ url_for('diario.diario') }}">
-        <p>Diario</p>
-    </a>
-    {% else %}
-    <a style="pointer-events: none;">
-        <p>Diario de hoje feito ✅ - volte amanhã</p>
-    </a>
-    {% endif %}
+{% extends 'base_app.html' %}
 
-    <br><br>
+{% block title %}Diário - Menu{% endblock %}
 
-    <a href="{{ url_for('diario.historico') }}">
-        <p>Historico</p>
-    </a>
+{% block header_buttons %}
+    <a href="{{ url_for('menu.index') }}" class="logout-link">Voltar para o menu</a>
+{% endblock %}
+
+{% block content %}
 
 
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
+    <div class="menu-grid">
+        
+        {% if not diario_feito %}
+        <div class="menu-item">
+            <a href="{{ url_for('diario.diario') }}">
+                <div class="card">
+                    <h3>Diário</h3>
+                    <p>Registre seu dia e emoções.</p>
+                </div>
+            </a>
+        </div>
+        {% else %}
+        <div class="menu-item">
+            <a style="pointer-events: none;">
+                <div class="card" style="opacity: 0.6;">
+                    <h3>Diário de hoje feito ✅</h3>
+                    <p>Volte amanhã para um novo registro.</p>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+
+        <div class="menu-item">
+            <a href="{{ url_for('diario.historico') }}">
+                <div class="card">
+                    <h3>Histórico</h3>
+                    <p>Visualize seus registros anteriores.</p>
+                </div>
+            </a>
+        </div>
+
     </div>
-    
-</body>
-</html>
+{% endblock %}

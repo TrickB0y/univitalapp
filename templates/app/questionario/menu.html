@@ -1,48 +1,50 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - Questionario - Menu</title>
-</head>
-<body>
-    <h1>UnivitalApp</h1>
-    <a href="{{ url_for('auth.logout') }}">Log Out</a>
-    <br><br>
-    <a href="{{ url_for('menu.index') }}">Voltar pora o menu</a>
-    <br><br><br><br>
-    
-    <p>
-        Este questionário tem como objetivo levantar informações sobre hábitos alimentares e aspectos emocionais relacionados à alimentação e ao corpo.
-    </p>
-    <p>
-        Atenção: O Questionario não substitui diagnóstico profissional. Os resultados servem apenas como triagem inicial.
-    </p>
+{% extends 'base_app.html' %}
 
-    <br><br>
-    
-    {% if not questionario_feito %}
-    <a href="{{ url_for('questionario.questionario', id = 1) }}">
-        <p>Questionario</p>
-    </a>
-    {% else %}
-    <a style="pointer-events: none;">
-        <p>Questionario feito ✅ - volte mês que vem</p>
-    </a>
-    {% endif %}
+{% block title %}Questionário - Menu{% endblock %}
 
-    <br><br>
+{% block content %}
+    <a href="{{ url_for('menu.index') }}" class="btn-primary" style="margin-left: 30px; margin-bottom: 20px;">Voltar para o menu</a>
 
-    <a href="{{ url_for('questionario.historico') }}">
-        <p>Historico</p>
-    </a>
-
-
-    <div class="flash-messages">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
+    <div class="card" style="margin-bottom: 20px;">
+        <h2>Sobre o Questionário</h2>
+        <p>
+            Este questionário tem como objetivo levantar informações sobre hábitos alimentares e aspectos emocionais relacionados à alimentação e ao corpo.
+        </p>
+        <p>
+            **Atenção:** O Questionário não substitui diagnóstico profissional. Os resultados servem apenas como triagem inicial.
+        </p>
     </div>
-    
-</body>
-</html>
+
+    <div class="menu-grid">
+        
+        {% if not questionario_feito %}
+        <div class="menu-item">
+            <a href="{{ url_for('questionario.questionario', id = 1) }}">
+                <div class="card">
+                    <h3>Iniciar Questionário</h3>
+                    <p>Responda às perguntas para uma avaliação inicial.</p>
+                </div>
+            </a>
+        </div>
+        {% else %}
+        <div class="menu-item">
+            <a style="pointer-events: none;">
+                <div class="card" style="opacity: 0.6;">
+                    <h3>Questionário feito ✅</h3>
+                    <p>Volte mês que vem para uma nova avaliação.</p>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+
+        <div class="menu-item">
+            <a href="{{ url_for('questionario.historico') }}">
+                <div class="card">
+                    <h3>Histórico de Resultados</h3>
+                    <p>Visualize seus resultados anteriores.</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+{% endblock %}

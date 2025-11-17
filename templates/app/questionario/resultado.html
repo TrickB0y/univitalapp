@@ -1,28 +1,31 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnivitallApp - Questionario - Resultado</title>
-</head>
-<body>
-    <h1>Questionario</h1>
-    <br><br>
-    <a href="{{ url_for('questionario.index') }}">Voltar para o menu do questionario</a>
-    <br>
-    <a href="{{ url_for('questionario.historico') }}">Ir para o historico</a>
-    <br><br>
-    <h2>Resultado</h2>
-    <br><br>
-    <h3>Data: {{ data }} </h3>
-    <br>
-    <h4>Risco Geral: {{ risco }}</h4>
-    <br>
-    <h4>Analise Geral:</h4>
-    <p>{{ texto[0] }}</p>
-    <br><br>
-    <h4>Orientação:</h4>
-    <p>{{ texto[1] }}</p>
+{% extends 'base_app.html' %}
 
-</body>
-</html>
+{% block title %}Resultado do Questionário{% endblock %}
+
+{% block header_title %}Resultado do Questionário{% endblock %}
+
+{% block content %}
+<div class="card content-section">
+    <h2 style="border-bottom: 2px solid var(--primary-color);">Resultado do Questionário</h2>
+    
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: var(--text-color); margin-bottom: 5px;">Data: {{ data }}</h3>
+        <h4 style="color: var(--secondary-color); font-size: 1.5em; margin-top: 0;">Risco Geral: {{ risco }}</h4>
+    </div>
+
+    <div style="margin-bottom: 30px;">
+        <h4 style="color: var(--primary-color); border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">Análise Geral:</h4>
+        <p>{{ texto[0] }}</p>
+    </div>
+
+    <div>
+        <h4 style="color: var(--primary-color); border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">Orientação:</h4>
+        <p>{{ texto[1] }}</p>
+    </div>
+
+    <div style="margin-top: 30px; display: flex; gap: 15px;">
+        <a href="{{ url_for('questionario.index') }}" class="btn-primary" style="text-decoration: none;">Voltar para o Menu</a>
+        <a href="{{ url_for('questionario.historico') }}" class="logout-link" style="color: var(--primary-color); border-color: var(--primary-color); text-decoration: none;">Ver Histórico</a>
+    </div>
+</div>
+{% endblock %}

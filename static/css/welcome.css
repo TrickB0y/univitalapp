@@ -1,50 +1,60 @@
-/* Estilos específicos para página de boas-vindas */
+
+
+/* Cores */
+:root {
+    --primary-color: #007bff; 
+    --secondary-color: #28a745; 
+    --background-color: #f8f9fa; 
+    --card-background: #FFFFFF; 
+    --text-color: #343a40;
+    --light-text-color: #6c757d;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
 
 body {
-    background: linear-gradient(135deg, #e0f2f7 0%, #c1d7e0 100%); /* Gradiente de fundo suave */
+    background: linear-gradient(135deg, #e0f2f7 0%, #c1d7e0 100%); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Fonte moderna */
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
     padding: 20px;
     box-sizing: border-box;
 }
 
 .welcome-content {
     width: 100%;
-    max-width: 100%; /* Remover limite de largura */
+    max-width: 700px;
     text-align: center;
     padding: 40px 20px;
-    background-color: transparent; /* Remover fundo branco */
-    border-radius: 0; /* Remover bordas arredondadas */
-    box-shadow: none; /* Remover sombra */
-    animation: fadeIn 1s ease-out forwards; /* Animação de entrada */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .welcome-title {
-    font-size: 58px; /* Título maior */
-    color: #007bff; /* Azul primário */
+    font-size: 58px;
+    color: var(--primary-color);
     margin-bottom: 25px;
-    font-weight: 800; /* Mais negrito */
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
-    letter-spacing: 1.5px; /* Espaçamento entre letras */
+    font-weight: 800;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+    letter-spacing: 1.5px;
 }
 
 .welcome-description {
     font-size: 19px;
-    line-height: 1.8; /* Melhor espaçamento entre linhas */
-    color: #555; /* Cor de texto mais suave */
+    line-height: 1.8;
+    color: var(--text-color);
     margin-bottom: 45px;
-    text-align: center; /* Centralizar texto */
+    text-align: center;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -62,37 +72,37 @@ body {
     display: inline-block;
     padding: 16px 35px;
     text-decoration: none;
-    border-radius: 30px; /* Botões mais arredondados (pill shape) */
+    border-radius: 30px;
     font-size: 18px;
     font-weight: 600;
-    transition: all 0.3s ease; /* Transição suave */
+    transition: all 0.3s ease;
     min-width: 180px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra para botões */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .btn-login {
-    background-color: #007bff; /* Azul primário */
+    background-color: var(--primary-color);
     color: white;
-    border: 2px solid #007bff;
+    border: 2px solid var(--primary-color);
 }
 
 .btn-login:hover {
-    background-color: #0056b3; /* Azul mais escuro no hover */
+    background-color: #0056b3;
     border-color: #0056b3;
-    transform: translateY(-3px) scale(1.02); /* Efeito de levantar e expandir */
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-register {
-    background-color: #28a745; /* Verde para registro */
+    background-color: var(--secondary-color);
     color: white;
-    border: 2px solid #28a745;
+    border: 2px solid var(--secondary-color);
 }
 
 .btn-register:hover {
-    background-color: #218838; /* Verde mais escuro no hover */
+    background-color: #218838;
     border-color: #218838;
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -139,5 +149,3 @@ body {
         max-width: 250px;
     }
 }
-
-
